@@ -1,9 +1,17 @@
+import Link from "next/link";
 
 const HomePage = () => {
   return (
     <div>
       <h1>Home Page</h1>
       <button className="btn btn-soft btn-primary">Button</button>
+      <ul>
+        <li>
+          <Link href="/">Home</Link><br/>
+          <Link href="/about">About</Link><br/>
+          <Link href="/about/contact">Contact</Link>
+        </li>
+      </ul>
     </div>
   );
 };
