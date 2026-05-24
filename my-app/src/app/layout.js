@@ -39,13 +39,16 @@ export default function RootLayout({ children }) {
                   <summary>Navigation</summary>
                   <ul className="bg-base-100 rounded-t-none p-2">
                     <li>
-                      <Link href="/">Home</Link>
+                      <Link className="btn btn-ghost normal-case text-xl" href="/">Home</Link>
                     </li>
                     <li>
-                      <Link href="/about">About</Link>
+                      <Link className="btn btn-ghost normal-case text-xl" href="/about">About</Link>
                     </li>
                     <li>
-                      <Link href="/about/contact">Contact</Link>
+                      <Link className="btn btn-ghost normal-case text-xl" href="/about/contact">Contact</Link>
+                    </li>
+                    <li>
+                      <Link className="btn btn-ghost normal-case text-xl" href="/githubusers">GitHub Users</Link>
                     </li>
                   </ul>
                 </details>
