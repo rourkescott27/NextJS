@@ -9,7 +9,6 @@ export const metadata = {
 const HomePage = () => {
   return (
     <div>
-      <button className="btn btn-soft btn-primary">Button</button>
       <ul>
         <li>
           <Link href="/">Home</Link><br/>
