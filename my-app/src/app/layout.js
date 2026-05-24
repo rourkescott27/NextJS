@@ -27,31 +27,40 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <div className="navbar bg-primary shadow-sm text-primary-content">
           <div className="flex-1">
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <Link className="btn btn-ghost text-xl" href="/">
+              My App
+            </Link>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
+              {/* <li>
+                <Link className="btn btn-ghost normal-case text-xl" href="/">
+                  Home
+                </Link>
+              </li> */}
               <li>
-                <a>Link</a>
+                <Link
+                  className="btn btn-ghost normal-case text-xl"
+                  href="/about"
+                >
+                  About
+                </Link>
               </li>
               <li>
-                <details>
-                  <summary>Navigation</summary>
-                  <ul className="bg-base-100 rounded-t-none p-2">
-                    <li>
-                      <Link className="btn btn-ghost normal-case text-xl" href="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link className="btn btn-ghost normal-case text-xl" href="/about">About</Link>
-                    </li>
-                    <li>
-                      <Link className="btn btn-ghost normal-case text-xl" href="/about/contact">Contact</Link>
-                    </li>
-                    <li>
-                      <Link className="btn btn-ghost normal-case text-xl" href="/githubusers">GitHub Users</Link>
-                    </li>
-                  </ul>
-                </details>
+                <Link
+                  className="btn btn-ghost normal-case text-xl"
+                  href="/about/contact"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="btn btn-ghost normal-case text-xl"
+                  href="/githubusers"
+                >
+                  GitHub Users
+                </Link>
               </li>
             </ul>
           </div>
