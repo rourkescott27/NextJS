@@ -15,7 +15,7 @@ const GithubUsers = async () => {
       <table className="table">
         <thead>
           <tr>
-            <th>Name</th> <th>URL</th> <th>Repos</th> <th></th>
+            <th>Name</th><th>URL</th><th>Repos</th> 
           </tr>
         </thead>
         <tbody>
