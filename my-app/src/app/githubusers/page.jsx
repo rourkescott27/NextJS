@@ -1,14 +1,15 @@
 import Link from "next/link";
 
 async function fetchGithubUsers() {
-  const res = await fetch("https://api.github.com/search/users?q=greg");
+  const res = await fetch("https://api.github.com/search/users?q=type:user");
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const json = await res.json();
   return json.items;
 }
 
 const GithubUsers = async () => {
   const users = await fetchGithubUsers();
-  console.log(users);
+  //*removed console.log(users);
 
   return (
     <div className="overflow-x-auto">
