@@ -1,11 +1,13 @@
-import React from "react";
+import Repos from "../../components/Repos";
 
-const UserReposPage = ({params:{user}}) => {
-    return (
-        <div>
-            UserReposPage
-        </div>
-    );
+const UserReposPage = async ({ params }) => {
+    const { user } = await params;
+    
+  return (
+    <div>
+      <Repos user={user} />
+    </div>
+  );
 };
 
 export default UserReposPage;
