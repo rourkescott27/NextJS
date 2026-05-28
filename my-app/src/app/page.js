@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Books from "./components/Books";
 
 export const metadata = {
   title: "Home - My Next.js App",
@@ -11,9 +12,7 @@ const HomePage = () => {
     <div>
       <ul>
         <li>
-          <Link href="/">Home</Link><br/>
-          <Link href="/about">About</Link><br/>
-          <Link href="/about/contact">Contact</Link>
+          <Books/>
         </li>
       </ul>
     </div>
