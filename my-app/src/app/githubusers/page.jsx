@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 async function fetchGithubUsers() {
-  const res = await fetch("https://api.github.com/search/users?q=type:user");
+  const res = await fetch("https://api.github.com/search/users?q=type:user" ,{next: { revalidate: 60 }});
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const json = await res.json();
   return json.items;
