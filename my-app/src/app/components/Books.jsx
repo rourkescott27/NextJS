@@ -20,11 +20,12 @@ const Books = async () => {
                 <img src={book.img} width="200" height="150" />
               </figure>
               <div className="card-body">
-                <div className="flex items-center gap-2">
-                  <h2 className="card-title">{book.id})</h2>
-                  <p>{book.title}</p>
+                <div>
+                  <h2 className="card-title justify-around">
+                    {book.id}) {book.title}
+                  </h2>
                 </div>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-center">
                   <Link href={book.link} className="btn btn-primary">
                     See in Amazon
                   </Link>
