@@ -1,12 +1,27 @@
+"use client";
+import LoadingPage from "../loading";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
 async function getBooks() {
   const res = await fetch("http://localhost:3000/api/books");
   const json = await res.json();
   return json;
 }
 
-const Books = async () => {
-  const books = await getBooks();
+const Books = () => { //!Removed async from here because useEffect is used to fetch data
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getBooks().then((books) => {
+      setBooks(books);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {return <LoadingPage />;}
+
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-2xl text-center font-bold text-heading ml-4 mt-5">
