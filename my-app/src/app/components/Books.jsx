@@ -1,5 +1,7 @@
 "use client";
+
 import LoadingPage from "../loading";
+import AddBook from "./AddBook";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -56,6 +58,7 @@ const Books = () => {
         </div>
       </form>
       <div className="w-full max-w-5xl bg-base-300 px-6 py-6 rounded-xl shadow-inner flex flex-col items-center mt-5">
+        <AddBook />
         {books.map((book) => (
           <div key={book.id}>
             <div className="card w-96 bg-base-100 shadow-xl mt-5">
