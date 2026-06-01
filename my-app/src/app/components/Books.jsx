@@ -17,11 +17,19 @@ const Books = () => {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
 
+  const fetchBooks = async () => { 
+    const res = await fetch("/api/books");
+    const books = await res.json();
+    setBooks(books);
+    setLoading(false);
+  }
+
   useEffect(() => {
-    getBooks().then((books) => {
-      setBooks(books);
-      setLoading(false);
-    });
+    fetchBooks();
+    // getBooks().then((books) => {
+    //   setBooks(books);
+    //   setLoading(false);
+    // });
   }, []);
 
   if (loading) {
@@ -37,6 +45,13 @@ const Books = () => {
     setLoading(false);
     console.log("Searching for:", query);
   };
+
+  const deleteBook = async (id) => {
+    const res = await fetch(`api/books/${id}`, {
+      method: "DELETE"
+    });
+    fetchBooks();
+  }
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -58,7 +73,7 @@ const Books = () => {
         </div>
       </form>
       <div className="w-full max-w-5xl bg-base-300 px-6 py-6 rounded-xl shadow-inner flex flex-col items-center mt-5">
-        <AddBook />
+        <AddBook refreshBooks={fetchBooks} />
         {books.map((book) => (
           <div key={book.id}>
             <div className="card w-96 bg-base-100 shadow-xl mt-5">
@@ -75,7 +90,12 @@ const Books = () => {
                   <Link href={book.link} className="btn btn-primary">
                     See in Amazon
                   </Link>
-                  <button className="btn btn-error"> Delete </button>
+                  <button
+                    onClick={() => deleteBook(book.id)}
+                    className="btn btn-error"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

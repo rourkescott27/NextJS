@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const AddBook = () => {
+const AddBook = ({refreshBooks}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [newBook, setNewBook] = useState({
     title: "",
@@ -28,6 +28,7 @@ const AddBook = () => {
         img: "",
       });
       setModalOpen(false);
+      refreshBooks(); //* Refresh the book list after adding a new book
     }
   };
 
