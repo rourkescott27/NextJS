@@ -9,9 +9,11 @@ async function getBooks() {
   return json;
 }
 
-const Books = () => { //!Removed async from here because useEffect is used to fetch data
+const Books = () => {
+  //!Removed async from here because useEffect is used to fetch data
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     getBooks().then((books) => {
@@ -20,13 +22,39 @@ const Books = () => { //!Removed async from here because useEffect is used to fe
     });
   }, []);
 
-  if (loading) {return <LoadingPage />;}
+  if (loading) {
+    return <LoadingPage />;
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const res = await fetch(`/api/books/search?query=${query}`);
+    const books = await res.json();
+    setBooks(books);
+    setLoading(false);
+    console.log("Searching for:", query);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-2xl text-center font-bold text-heading ml-4 mt-5">
         Books
       </h1>
+      <form onSubmit={handleSubmit}>
+        <div className="flex items-center gap-2 mt-5">
+          <input
+            type="text"
+            placeholder="Search books..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="input input-primary w-full max-w-xs"
+          />
+          <button type="submit" className="btn btn-primary">
+            Search
+          </button>
+        </div>
+      </form>
       <div className="w-full max-w-5xl bg-base-300 px-6 py-6 rounded-xl shadow-inner flex flex-col items-center mt-5">
         {books.map((book) => (
           <div key={book.id}>
