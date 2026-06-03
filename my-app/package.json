@@ -8,15 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
+    "@prisma/client": "6.19",
     "autoprefixer": "^10.5.0",
     "daisyui": "^5.5.20",
     "next": "16.2.6",
+    "prisma": "6.19",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.16",
     "babel-plugin-react-compiler": "1.0.0",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "typescript": "6.0.3"
   }
 }
