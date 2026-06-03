@@ -1,7 +1,9 @@
-import books from "./data.json";
 import { NextResponse } from "next/server";
+import { prisma } from "../../db";
 
 export async function GET(request) {
+  const books = await prisma.book.findMany();
+  console.log("Get books called");
   return NextResponse.json(books);
 }
 
