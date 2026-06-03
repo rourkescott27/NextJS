@@ -9,13 +9,13 @@ export async function GET(request) {
 
 export async function POST(request) {
   const { title, img, link } = await request.json();
-  const newBook = {
-    id: books.length + 1,
-    title,
-    link,
-    img,
-  };
-
-  books.push(newBook);
+  
+  await prisma.book.create({
+    data: {
+      title: title,
+      link: link,
+      img: img
+    }
+  });
   return NextResponse.json("Book added successfully!");
 }
