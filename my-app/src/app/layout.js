@@ -28,16 +28,11 @@ export default function RootLayout({ children }) {
         <div className="navbar bg-primary shadow-sm text-primary-content">
           <div className="flex-1">
             <Link className="btn btn-ghost text-xl" href="/">
-              My App
+              Book Store
             </Link>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
-              {/* <li>
-                <Link className="btn btn-ghost normal-case text-xl" href="/">
-                  Home
-                </Link>
-              </li> */}
               <li>
                 <Link
                   className="btn btn-ghost normal-case text-xl"
